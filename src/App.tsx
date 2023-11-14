@@ -1,15 +1,15 @@
-import { RecoilRoot } from "recoil";
 import "./App.css";
 import Todos from "./components/Todos";
+import { totalTodos } from "./state/selectors/TotalTodos";
+import { useRecoilValue } from "recoil";
 
 function App() {
+	const totalTodoState = useRecoilValue(totalTodos);
 	return (
-		<RecoilRoot>
-			<div className="App">
-				<div>Hey</div>
-				<Todos />
-			</div>
-		</RecoilRoot>
+		<div className="App">
+			<div>Total todos : {totalTodoState} </div>
+			<Todos />
+		</div>
 	);
 }
 
